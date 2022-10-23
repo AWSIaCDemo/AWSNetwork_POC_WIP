@@ -13,7 +13,7 @@ variable "name" {
 variable "cidr" {
   description = "(Optional) The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id`"
   type        = string
-  default     = ""
+  default     = "10.0.0.0/16"
 }
 
 variable "enable_ipv6" {
@@ -25,13 +25,13 @@ variable "enable_ipv6" {
 variable "private_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 private subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = []
+  default     = [2001:db8:1234:1a01::/64]
 }
 
 variable "public_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 public subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = []
+  default     = [2001:db8:1234:1a00::/64]
 }
 
 variable "assign_ipv6_address_on_creation" {
