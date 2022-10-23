@@ -13,7 +13,7 @@ variable "name" {
 variable "cidr" {
   description = "(Optional) The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id`"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.10.0.0/16"
 }
 
 variable "enable_ipv6" {
@@ -25,13 +25,13 @@ variable "enable_ipv6" {
 variable "private_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 private subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+  default     = ["10.10.1.0/24", "10.10.2.0/24"]
 }
 
 variable "public_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 public subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = ["10.0.101.0/24", "10.0.102.0/24"]
+  default     = ["10.10.101.0/24", "10.10.102.0/24"]
 }
 
 variable "assign_ipv6_address_on_creation" {
@@ -55,7 +55,7 @@ variable "public_subnet_assign_ipv6_address_on_creation" {
 variable "secondary_cidr_blocks" {
   description = "List of secondary CIDR blocks to associate with the VPC to extend the IP Address pool"
   type        = list(string)
-  default     = [10.1.0.0/16]
+  default     = [10.11.0.0/16]
 }
 
 variable "instance_tenancy" {
@@ -79,13 +79,13 @@ variable "private_subnet_suffix" {
 variable "public_subnet_names" {
   description = "Explicit values to use in the Name tag on public subnets. If empty, Name tags are generated."
   type        = list(string)
-  default     = [Network-Prod-E1-Public-SNET]
+  default     = []
 }
 
 variable "private_subnet_names" {
   description = "Explicit values to use in the Name tag on private subnets. If empty, Name tags are generated."
   type        = list(string)
-  default     = [Network-Prod-E1-Private-SNET]
+  default     = []
 }
 
 variable "public_subnets" {
@@ -165,13 +165,13 @@ variable "reuse_nat_ips" {
 variable "external_nat_ip_ids" {
   description = "List of EIP IDs to be assigned to the NAT Gateways (used in combination with reuse_nat_ips)"
   type        = list(string)
-  default     = [eipalloc-026b175ecdfbdd14a]
+  default     = []
 }
 
 variable "external_nat_ips" {
   description = "List of EIPs to be used for `nat_public_ips` output (used in combination with reuse_nat_ips and external_nat_ip_ids)"
   type        = list(string)
-  default     = [eipalloc-026b175ecdfbdd14a]
+  default     = []
 }
 
 variable "map_public_ip_on_launch" {
