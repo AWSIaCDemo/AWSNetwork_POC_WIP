@@ -7,7 +7,7 @@ variable "create_vpc" {
 variable "name" {
   description = "Name to be used on all the resources as identifier"
   type        = string
-  default     = "myvpc"
+  default     = "Network-Prod-E1-VPC"
 }
 
 variable "cidr" {
@@ -25,13 +25,13 @@ variable "enable_ipv6" {
 variable "private_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 private subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = ["10.10.1.0/24", "10.10.2.0/24"]
+  default     = []
 }
 
 variable "public_subnet_ipv6_prefixes" {
   description = "Assigns IPv6 public subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list"
   type        = list(string)
-  default     = ["10.10.101.0/24", "10.10.102.0/24"]
+  default     = []
 }
 
 variable "assign_ipv6_address_on_creation" {
